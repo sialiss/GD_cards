@@ -1,7 +1,7 @@
 
 .gdignore
-godot-cpp
-.godot/
+gdextension/
+.godot
 
 # Prerequisites
 *.d
