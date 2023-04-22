@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bavkt6qcbwsb5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j7yxs"]
+
+[node name="ListOfCards" type="CanvasLayer"]
+
+[node name="background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1024, 600)
+offset_right = 503.0
+offset_bottom = 248.0
+texture = SubResource("CanvasTexture_j7yxs")
+
+[node name="Types" type="Node2D" parent="."]
+
+[node name="All" type="Button" parent="Types"]
+offset_top = 1.0
+offset_right = 67.0
+offset_bottom = 69.0
+
+[node name="Button2" type="Button" parent="Types"]
+offset_left = 68.0
+offset_top = 1.0
+offset_right = 135.0
+offset_bottom = 69.0
+
+[node name="Button3" type="Button" parent="Types"]
+offset_left = 136.0
+offset_top = 2.0
+offset_right = 203.0
+offset_bottom = 70.0
+
+[node name="Button4" type="Button" parent="Types"]
+offset_left = 205.0
+offset_top = 3.0
+offset_right = 272.0
+offset_bottom = 71.0
+
+[node name="Button5" type="Button" parent="Types"]
+offset_left = 275.0
+offset_top = 2.0
+offset_right = 342.0
+offset_bottom = 70.0
+
+[node name="Back" type="Button" parent="."]
+offset_left = 935.0
+offset_top = 2.0
+offset_right = 1018.0
+offset_bottom = 77.0
+
+[node name="Search" type="TextEdit" parent="."]
+offset_left = 345.0
+offset_top = 1.0
+offset_right = 824.0
+offset_bottom = 72.0
+
+[node name="Sort" type="MenuButton" parent="."]
+offset_left = 827.0
+offset_top = 6.0
+offset_right = 934.0
+offset_bottom = 71.0
+text = "sort"
+
+[node name="Cards" type="Node2D" parent="."]
