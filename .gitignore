@@ -1,7 +1,7 @@
 
 .gdignore
 gdextension/
-.godot
+.godot/
 
 # Prerequisites
 *.d
