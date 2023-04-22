@@ -1,3 +1,8 @@
+
+.gdignore
+godot-cpp
+.godot/
+
 # Prerequisites
 *.d
 
