@@ -1,6 +1,7 @@
 
 .gdignore
-gdextension/
+godot-cpp
+.vscode
 .godot/
 
 # Prerequisites

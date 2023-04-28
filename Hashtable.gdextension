@@ -1,0 +1,7 @@
+[configuration]
+
+entry_symbol = "Hashtable_library_init"
+
+[libraries]
+
+windows.debug.x86_64 = "res://libHashtable.windows.template_debug.x86_64.dll"

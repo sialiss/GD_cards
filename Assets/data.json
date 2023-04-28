@@ -1,0 +1,248 @@
+[
+    {
+
+    "type": "атомарная механика",
+    "name": "ПЕРЕМЕЩАТЬ",
+    "text": "Объект двигается в пространстве.",
+    "image_path": "res://Assets/cards/move.png"
+    },
+
+    {
+
+    "type": "атомарная механика",
+    "name": "ПОМЕСТИТЬ",
+    "text": "Объект возникает в пространстве.",
+    "image_path": "res://Assets/cards/place.png"
+},
+
+    {
+
+    "type": "атомарная механика",
+    "name": "ВРАЩАТЬ",
+    "text": "Объект поворачивается вокруг своей оси.",
+    "image_path": "res://Assets/cards/rotate.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "УДАЛИТЬ",
+    "text": "Объект удаляется из игровой среды.",
+    "image_path": "res://Assets/cards/delete.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "УВЕЛИЧИВАТЬ",
+    "text": "Объект увеличивается в размере по одной или нескольким осям.",
+    "image_path": "res://Assets/cards/increase.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "УМЕНЬШАТЬ",
+    "text": "Объект уменьшается в размере по одной или нескольким осям.",
+    "image_path": "res://Assets/cards/reduce.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "ПРЫГАТЬ",
+    "text": "Объект двигается рывком по одной или нескольким осям.",
+    "image_path": "res://Assets/cards/jump.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "ГРАВИТАЦИЯ",
+    "text": "Объект с ускорением стремится приблизиться к другому объекту.",
+    "image_path": "res://Assets/cards/gravitation.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "ИЗМЕНЯТЬ ФОРМУ",
+    "text": "Объект изменяет форму",
+    "image_path": "res://Assets/cards/change_shape.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "ПЕРЕСЕКАТЬ",
+    "text": "Объект пересекается с другим объектом.",
+    "image_path": "res://Assets/cards/cross.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "РАЗДЕЛИТЬ",
+    "text": "Объект разделяется на несколько объектов.",
+    "image_path": "res://Assets/cards/split.png"
+},
+
+    {
+
+    "type": "атомарная механика",
+    "name": "ОБЪЕДИНИТЬ",
+    "text": "Несколько объектов соединяются в один.",
+    "image_path": "res://Assets/cards/unite.png"
+},
+
+    {
+
+    "type": "атомарная механика",
+    "name": "СОБРАТЬ СЕТ",
+    "text": "Игрок собирает определённый набор ресурсов",
+    "image_path": "res://Assets/cards/collect_set.png"
+},
+
+    {
+
+    "type": "атомарная механика",
+    "name": "ДОБАВИТЬ РЕСУРС",
+    "text": "Игроку добавляется ресурс",
+    "image_path": "res://Assets/cards/add_resource.png"
+},
+
+    {
+
+    "type": "атомарная механика",
+    "name": "ВЫЧЕСТЬ РЕСУРС",
+    "text": "Игрок теряет ресурс",
+    "image_path": "res://Assets/cards/substract_resource.png"
+},
+
+    {
+
+    "type": "атомарная механика",
+    "name": "ИЗМЕНЯТЬ ДИНАМИКУ",
+    "text": "Замедлять или ускорять процессы во времени",
+    "image_path": "res://Assets/cards/change_dynamics.png"
+},
+
+    {
+    "type": "атомарная механика",
+    "name": "ГЕН. СЛУЧАЙНОСТИ",
+    "text": "Случайное событие или число",
+    "image_path": "res://Assets/cards/random.png"
+},
+
+    {
+    "type": "игровое пространство",
+    "name": "ТРЕХМЕРНОЕ",
+    "text": "Игровое пространство",
+    "image_path": "res://Assets/cards/three-dimensional.png"
+},
+
+    {
+    "type": "игровое пространство",
+    "name": "ЛИНИЯ",
+    "text": "Игровое пространство",
+    "image_path": "res://Assets/cards/line.png"
+},
+
+    {
+    "type": "игровое пространство",
+    "name": "ПЛОСКОСТЬ",
+    "text": "Игровое пространство",
+    "image_path": "res://Assets/cards/plane.png"
+},
+
+    {
+    "type": "перспектива игрока",
+    "name": "ОТ ПЕРВОГО ЛИЦА",
+    "text": "Игрок видит глазами своего аватара.",
+    "image_path": "res://Assets/cards/first_person.png"
+},
+
+    {
+    "type": "перспектива игрока",
+    "name": "ОТ ТРЕТЬЕГО ЛИЦА",
+    "text": "Игрок видит объекты в 3D мире из камеры на некотором отдалении.",
+    "image_path": "res://Assets/cards/third_party.png"
+},
+
+    {
+    "type": "перспектива игрока",
+    "name": "СВЕРХУ",
+    "text": "Игрок видит объекты сверху.",
+    "image_path": "res://Assets/cards/above.png"
+},
+
+    {"type": "перспектива игрока",
+    "name": "СБОКУ",
+    "text": "Игрок видит объекты сбоку.",
+    "image_path": "res://Assets/cards/side.png"
+},
+
+    {"type": "перспектива игрока",
+    "name": "ИЗОМЕТРИЯ",
+    "text": "Игрок видит объекты со стороны в изометрическом пространстве.",
+    "image_path": "res://Assets/cards/isometry.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "СОРЕВНОВАНИЕ",
+    "text": "Условие победы и поражения. Участие соперников.",
+    "image_path": "res://Assets/cards/competition.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "КООПЕРАТИВ",
+    "text": "Объединение усилий для достижения общей цели.",
+    "image_path": "res://Assets/cards/cooperative.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "МЕХАНИЧЕСКОЕ МАСТЕРСТВО",
+    "text": "Рефлексы, механическая память, скорость реакции.",
+    "image_path": "res://Assets/cards/mechanical_skill.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "СТРАТЕГИЧЕСКОЕ МАСТЕРСТВО",
+    "text": "Тактические и стратегические действия. Просчёт на несколько ходов вперёд.",
+    "image_path": "res://Assets/cards/strategy.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "БОРЬБА С ХАОСОМ",
+    "text": "Упорядочивание пространства, объектов, ресурсов. Управление неопределенностью.",
+    "image_path": "res://Assets/cards/fighting_chaos.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "ВПЕЧАТЛЕНИЕ",
+    "text": "Эстетическое удовольствие, рассказ истории или погружение в атмосферу.",
+    "image_path": "res://Assets/cards/impression.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "ЭКСЦЕНТРИЧНОСТЬ",
+    "text": "Странные, нелепые действия и неожиданные результаты.",
+    "image_path": "res://Assets/cards/eccentricity.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "РОЛЕВОЙ ОТЫГРЫШ",
+    "text": "Проживание истории, отыгрыш внедренной или вымышленной роли.",
+    "image_path": "res://Assets/cards/role_playing.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "ПЕРФОРМАНС",
+    "text": "Действие как выступление, актерская игра участников.",
+    "image_path": "res://Assets/cards/performance.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "ЭКСПРЕССИЯ",
+    "text": "Рефлексия, исследования собственных чувств и эмоций.",
+    "image_path": "res://Assets/cards/expression.png"
+},
+
+    {"type": "вид игрового опыта",
+    "name": "СИМУЛЯЦИЯ",
+    "text": "Моделирование процессов работы объектов реального или вымышленного мира.",
+    "image_path": "res://Assets/cards/simulation.png"
+}
+]

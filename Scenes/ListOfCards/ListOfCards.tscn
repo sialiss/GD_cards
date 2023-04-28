@@ -1,14 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://bavkt6qcbwsb5"]
+[gd_scene load_steps=13 format=3 uid="uid://bavkt6qcbwsb5"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_j7yxs"]
+[ext_resource type="Script" path="res://Scenes/ListOfCards/ListOfCards.gd" id="1_mtd6i"]
+[ext_resource type="Texture2D" uid="uid://dqx1k6v0ifjda" path="res://Assets/mechanics.png" id="1_odgt5"]
+[ext_resource type="Texture2D" uid="uid://ddcyhtpxpgvli" path="res://Assets/space.png" id="2_8gxwr"]
+[ext_resource type="Texture2D" uid="uid://g837fvc802kc" path="res://Assets/eye.png" id="3_qxah8"]
+[ext_resource type="Texture2D" uid="uid://bbtftlvhegsi4" path="res://Assets/experience.png" id="4_i1euw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdfkw"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_57uyb"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_58pl1"]
+
+[sub_resource type="Theme" id="Theme_3qdfc"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
+
+[sub_resource type="Theme" id="Theme_1x5hg"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
+
+[sub_resource type="Theme" id="Theme_oj5aw"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
+
+[sub_resource type="Theme" id="Theme_b0pcm"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
 
 [node name="ListOfCards" type="CanvasLayer"]
+script = ExtResource("1_mtd6i")
 
 [node name="background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1024, 600)
 offset_right = 503.0
 offset_bottom = 248.0
-texture = SubResource("CanvasTexture_j7yxs")
+theme = SubResource("Theme_57uyb")
+texture = SubResource("CanvasTexture_58pl1")
 
 [node name="Types" type="Node2D" parent="."]
 
@@ -16,48 +47,77 @@ texture = SubResource("CanvasTexture_j7yxs")
 offset_top = 1.0
 offset_right = 67.0
 offset_bottom = 69.0
+theme = SubResource("Theme_3qdfc")
+text = "Все"
 
 [node name="Button2" type="Button" parent="Types"]
 offset_left = 68.0
 offset_top = 1.0
 offset_right = 135.0
-offset_bottom = 69.0
+offset_bottom = 71.0
+theme = SubResource("Theme_1x5hg")
+icon = ExtResource("1_odgt5")
+expand_icon = true
 
 [node name="Button3" type="Button" parent="Types"]
 offset_left = 136.0
 offset_top = 2.0
 offset_right = 203.0
 offset_bottom = 70.0
+theme = SubResource("Theme_oj5aw")
+icon = ExtResource("2_8gxwr")
+expand_icon = true
 
 [node name="Button4" type="Button" parent="Types"]
 offset_left = 205.0
 offset_top = 3.0
 offset_right = 272.0
 offset_bottom = 71.0
+theme = SubResource("Theme_oj5aw")
+icon = ExtResource("3_qxah8")
+expand_icon = true
 
 [node name="Button5" type="Button" parent="Types"]
 offset_left = 275.0
 offset_top = 2.0
 offset_right = 342.0
 offset_bottom = 70.0
+theme = SubResource("Theme_oj5aw")
+icon = ExtResource("4_i1euw")
+expand_icon = true
 
 [node name="Back" type="Button" parent="."]
 offset_left = 935.0
 offset_top = 2.0
 offset_right = 1018.0
 offset_bottom = 77.0
+theme = SubResource("Theme_b0pcm")
+text = "Меню"
 
 [node name="Search" type="TextEdit" parent="."]
 offset_left = 345.0
 offset_top = 1.0
 offset_right = 824.0
 offset_bottom = 72.0
+theme = SubResource("Theme_b0pcm")
+placeholder_text = "Введите название карты"
 
 [node name="Sort" type="MenuButton" parent="."]
 offset_left = 827.0
 offset_top = 6.0
 offset_right = 934.0
 offset_bottom = 71.0
-text = "sort"
+theme = SubResource("Theme_b0pcm")
+text = "Сортировка"
 
-[node name="Cards" type="Node2D" parent="."]
+[node name="Hashtable" type="Hashtable" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 18.0
+offset_top = 90.0
+offset_right = 1002.0
+offset_bottom = 574.0
+
+[node name="cards" type="GridContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
