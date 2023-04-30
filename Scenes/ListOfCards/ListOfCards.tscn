@@ -110,14 +110,18 @@ offset_bottom = 71.0
 theme = SubResource("Theme_b0pcm")
 text = "Сортировка"
 
-[node name="Hashtable" type="Hashtable" parent="."]
-
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 18.0
 offset_top = 90.0
 offset_right = 1002.0
 offset_bottom = 574.0
+horizontal_scroll_mode = 3
 
 [node name="cards" type="GridContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(984, 484)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5

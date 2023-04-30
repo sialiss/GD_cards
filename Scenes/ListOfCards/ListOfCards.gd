@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@onready var cards = $%cards
+var card_scene = preload("res://Scenes/card.tscn")
+
 var file_data = [
 	{
 		"type": "атомарная механика",
@@ -25,8 +28,14 @@ func load_json():
 
 func _ready():
 	load_json()
+
 	for each in file_data:
-		print(each.name)
+		# создание сцены карточки и смена ей картинки на нужную, добавление карточки в хэш таблицу
+		var card = card_scene.instantiate()
+		var path = load(each.image_path)
+		card.texture = path
+		cards.add_child(card)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,48 +1,9 @@
 #include "Hashtable.h"
-#include <string>
-#include <cstring>
-#include <functional>
 #include <iostream>
 #include <fstream> // для файла
-#include <vcpkg/packages/jsoncpp_x86-windows/include/json/json.h>
-#include <algorithm> // для transform()
-#include <cctype>    // для tolower()
 #include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace std;
-
-// function to fill hash table from JSON file
-// void Hashtable::fillHashTableFromJSON(Hashtable &Hashtable, const string &filename)
-// {
-//     // open JSON file
-//     ifstream file(filename);
-//     if (!file.is_open())
-//     {
-//         cerr << "Failed to open file: " << filename << endl;
-//         return;
-//     }
-
-//     // read JSON data from file
-//     Json::Value root;
-//     file >> root;
-
-//     int i = 0;
-//     // iterate through JSON data and insert into hash table
-//     for (auto &element : root)
-//     {
-//         int key = i;
-//         string type = element["type"].asString();
-//         string name = element["name"].asString();
-//         transform(name.begin(), name.end(), name.begin(), [](unsigned char c) { return tolower(c); });
-//         string text = element["text"].asString();
-//         string image_path = element["image_path"].asString();
-//         Hashtable.insert(key, type.c_str(), name.c_str(), text.c_str(), image_path.c_str());
-//         i++;
-//     }
-
-//     // close file
-//     file.close();
-// }
 
 const int TABLE_SIZE = 200;
 
