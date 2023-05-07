@@ -17,6 +17,11 @@ Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
 
 [sub_resource type="Theme" id="Theme_3qdfc"]
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
 
 [sub_resource type="Theme" id="Theme_1x5hg"]
@@ -43,14 +48,14 @@ texture = SubResource("CanvasTexture_58pl1")
 
 [node name="Types" type="Node2D" parent="."]
 
-[node name="All" type="Button" parent="Types"]
+[node name="all" type="Button" parent="Types"]
 offset_top = 1.0
 offset_right = 67.0
 offset_bottom = 69.0
 theme = SubResource("Theme_3qdfc")
 text = "Все"
 
-[node name="Button2" type="Button" parent="Types"]
+[node name="mech" type="Button" parent="Types"]
 offset_left = 68.0
 offset_top = 1.0
 offset_right = 135.0
@@ -59,7 +64,7 @@ theme = SubResource("Theme_1x5hg")
 icon = ExtResource("1_odgt5")
 expand_icon = true
 
-[node name="Button3" type="Button" parent="Types"]
+[node name="space" type="Button" parent="Types"]
 offset_left = 136.0
 offset_top = 2.0
 offset_right = 203.0
@@ -68,7 +73,7 @@ theme = SubResource("Theme_oj5aw")
 icon = ExtResource("2_8gxwr")
 expand_icon = true
 
-[node name="Button4" type="Button" parent="Types"]
+[node name="eye" type="Button" parent="Types"]
 offset_left = 205.0
 offset_top = 3.0
 offset_right = 272.0
@@ -77,7 +82,7 @@ theme = SubResource("Theme_oj5aw")
 icon = ExtResource("3_qxah8")
 expand_icon = true
 
-[node name="Button5" type="Button" parent="Types"]
+[node name="experience" type="Button" parent="Types"]
 offset_left = 275.0
 offset_top = 2.0
 offset_right = 342.0
@@ -125,3 +130,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
+
+[connection signal="pressed" from="Types/all" to="." method="_on_all_pressed"]
+[connection signal="pressed" from="Types/mech" to="." method="_on_mech_pressed"]
+[connection signal="pressed" from="Types/space" to="." method="_on_space_pressed"]
+[connection signal="pressed" from="Types/eye" to="." method="_on_eye_pressed"]
+[connection signal="pressed" from="Types/experience" to="." method="_on_experience_pressed"]
+[connection signal="text_changed" from="Search" to="." method="_on_search_text_changed"]

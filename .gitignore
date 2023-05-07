@@ -46,3 +46,4 @@ export_presets.cfg
 .mono/
 data_*/
 gdextension/src/vcpkg
+gdextension/src/vcpkg
