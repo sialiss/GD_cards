@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683458720
+::res://::1683571006
 Hashtable.gdextension::GDExtension::-1::1682553445::0::1::::<><>::
 icon.svg::CompressedTexture2D::6331862163367806572::1682202003::1682202007::1::::<><>::
 README.md::TextFile::-1::1682203491::0::1::::<><>::
@@ -48,7 +48,7 @@ three-dimensional.png::CompressedTexture2D::1162780870352445716::1682561270::168
 unite.png::CompressedTexture2D::307483771919248383::1682560897::1682627835::1::::<><>::
 ::res://Scenes/::1682896007
 card.tscn::PackedScene::8799950205855820703::1682896007::0::1::::<><>::uid://c2fqchl1y4d6
-::res://Scenes/ListOfCards/::1683288250
-ListOfCards.gd::GDScript::-1::1683288250::0::1::::<>CanvasLayer<>::
-ListOfCards.tscn::PackedScene::2430415369574031880::1683241273::0::1::::<><>::res://Scenes/ListOfCards/ListOfCards.gd<>uid://dqx1k6v0ifjda<>uid://ddcyhtpxpgvli<>uid://g837fvc802kc<>uid://bbtftlvhegsi4
+::res://Scenes/ListOfCards/::1683459593
+ListOfCards.gd::GDScript::-1::1683459577::0::1::::<>CanvasLayer<>::
+ListOfCards.tscn::PackedScene::2430415369574031880::1683459593::0::1::::<><>::res://Scenes/ListOfCards/ListOfCards.gd<>uid://dqx1k6v0ifjda<>uid://ddcyhtpxpgvli<>uid://g837fvc802kc<>uid://bbtftlvhegsi4
 ::res://Sounds/::1682203710

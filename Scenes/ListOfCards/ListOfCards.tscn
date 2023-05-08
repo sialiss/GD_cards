@@ -34,6 +34,11 @@ Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
 
 [sub_resource type="Theme" id="Theme_b0pcm"]
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
 
 [node name="ListOfCards" type="CanvasLayer"]
@@ -92,10 +97,10 @@ icon = ExtResource("4_i1euw")
 expand_icon = true
 
 [node name="Back" type="Button" parent="."]
-offset_left = 935.0
-offset_top = 2.0
+offset_left = 933.0
+offset_top = 3.0
 offset_right = 1018.0
-offset_bottom = 77.0
+offset_bottom = 71.0
 theme = SubResource("Theme_b0pcm")
 text = "Меню"
 
@@ -107,13 +112,19 @@ offset_bottom = 72.0
 theme = SubResource("Theme_b0pcm")
 placeholder_text = "Введите название карты"
 
-[node name="Sort" type="MenuButton" parent="."]
-offset_left = 827.0
-offset_top = 6.0
-offset_right = 934.0
+[node name="Sort" type="OptionButton" parent="."]
+offset_left = 828.0
+offset_top = 3.0
+offset_right = 925.0
 offset_bottom = 71.0
 theme = SubResource("Theme_b0pcm")
-text = "Сортировка"
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "(А-Я)"
+popup/item_0/id = 0
+popup/item_1/text = "(Я-А)"
+popup/item_1/id = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 18.0
@@ -137,3 +148,4 @@ columns = 5
 [connection signal="pressed" from="Types/eye" to="." method="_on_eye_pressed"]
 [connection signal="pressed" from="Types/experience" to="." method="_on_experience_pressed"]
 [connection signal="text_changed" from="Search" to="." method="_on_search_text_changed"]
+[connection signal="item_selected" from="Sort" to="." method="_on_sort_item_selected"]

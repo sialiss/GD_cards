@@ -5,6 +5,16 @@ var card_scene = preload("res://Scenes/card.tscn")
 var num_of_keys = 300
 var f_filter = ""
 
+static func sort_ascending(a, b):
+	if a.name < b.name:
+		return true
+	return false
+	
+static func sort_descending(a, b):
+	if a.name > b.name:
+		return true
+	return false
+
 var file_data = [
 	{
 		"type": "атомарная механика",
@@ -119,4 +129,21 @@ func _on_search_text_changed():
 			add_to_hashtable(new_card_list, filtered_list[each])
 		elif new_text in filtered_list[each].name:
 			add_to_hashtable(new_card_list, filtered_list[each])
+	display_cards(new_card_list)
+
+
+func _on_sort_item_selected(index):
+	hide_all_cards()
+	var new_card_list = {}
+	var filtered_list = filter(f_filter)
+	var sorted_names = filtered_list.values()
+	if index == 0:
+		sorted_names.sort_custom(sort_ascending)
+		for each in sorted_names:
+			add_to_hashtable(new_card_list, each)
+	elif index == 1:
+		sorted_names.sort_custom(sort_descending)
+		for each in sorted_names:
+			add_to_hashtable(new_card_list, each)
+			
 	display_cards(new_card_list)
