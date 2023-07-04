@@ -1,189 +1,114 @@
 #include "Hashtable.h"
-#include <iostream>
-#include <fstream> // для файла
 #include <godot_cpp/variant/utility_functions.hpp>
+#include <iostream>
+#include <stdlib.h>
 
-using namespace std;
+using namespace Godot;
 
-const int TABLE_SIZE = 200;
+const int NumOfKeys = 50;
+int MaxNumOfCollisions = NumOfKeys * 7 / 10;
+int filled = 0;
 
-Hashtable::Hashtable()
+Hashtable::Hashtable(Variant key, int value, Variant type, Variant name, Variant text, Variant image_path) {
+    this->key = key;
+    this->value = value;
+    this->type = type;
+    this->name = name;
+    this->text = text;
+    this->image_path = image_path;
+    this->state = 1;
+};
+
+Hashtable::hash_f(Variant key)
 {
-    table = new HashNode *[TABLE_SIZE];
-    for (int i = 0; i < TABLE_SIZE; i++)
-    {
-        table[i] = nullptr;
-    }
+    int hashNum = 0;
+    for (int j = 0; j < 6; j++)
+        hashNum = hashNum + (key[j] * key[j]);
+    hashNum = hashNum % NumOfKeys;
+    return hashNum;
 }
 
-Hashtable::~Hashtable()
+Hashtable::restructuring(Hashtable *&table)
 {
-    for (int i = 0; i < TABLE_SIZE; i++)
+    int oldNum = NumOfKeys;
+    NumOfKeys *= 2;
+    MaxNumOfCollisions = NumOfKeys * 7 / 10;
+    filled = 0;
+    Hashtable *newTable = new Hashtable[NumOfKeys];
+
+    for (int i = 0; i < oldNum; i++)
     {
-        if (table[i] != nullptr)
+        if (table[i].state == 1)
+            table.insert(newTable, table[i]);
+    }
+
+    Hashtable *tmp = table;
+    delete[] tmp;
+    table = newTable;
+}
+
+Hashtable::insert(Hashtable *&table, Hashtable e)
+{
+    int hashNum = table.hash_f(e.key);
+
+    for (int j = 0; j < MaxNumOfCollisions; j++)
+    {
+        if (table[hashNum].state < 1)
         {
-            delete table[i];
+            table[hashNum] = e;
+            filled += 1;
+            if (filled > MaxNumOfCollisions)
+            {
+                table.restructuring(table);
+                return table.insert(table, e);
+            }
+            return hashNum;
         }
-    }
-    delete[] table;
-}
-
-int Hashtable::hashFunction(int key)
-{
-    return key % TABLE_SIZE;
-}
-
-void Hashtable::insert(int key, String type, String name, String text, String image_path)
-{
-    int hash = hashFunction(key);
-    while (table[hash] != nullptr && table[hash]->key != key)
-    {
-        hash = hashFunction(hash + 1);
-    }
-    if (table[hash] != nullptr)
-    {
-        delete table[hash];
-    }
-    table[hash] = new HashNode(key, type, name, text, image_path);
-}
-
-void Hashtable::remove(int key)
-{
-    int hash = hashFunction(key);
-    while (table[hash] != nullptr)
-    {
-        if (table[hash]->key == key)
+        else if (table[hashNum].key == e.key)
         {
-            break;
+            if (table[hashNum].value != e.value)
+            {
+                table[hashNum] = e;
+            }
+            return hashNum;
         }
-        hash = hashFunction(hash + 1);
+
+        hashNum += 1;
+        if (hashNum >= NumOfKeys)
+            hashNum -= NumOfKeys;
     }
-    if (table[hash] == nullptr)
-    {
-        return;
-    }
-    else
-    {
-        delete table[hash];
-    }
+
+    table.restructuring(table);
+    return table.insert(table, e);
 }
 
-// int Hashtable::search(const String  name) {
-//     for (int i = 0; i < TABLE_SIZE; i++)
-//     {
-//         if (table[i] != nullptr)
-//         {
-//             HashNode *entry = table[i];
-//             if (entry->name == name) return entry->key;
-//         }
-//     }
-//     return -1;
-// }
-
-void Hashtable::display()
+Hashtable::remove(Hashtable *&table, Variant key)
 {
-    for (int i = 0; i < TABLE_SIZE; i++)
+    int hashNum = table.hash_f(key);
+    for (int j = 0; j < MaxNumOfCollisions; j++)
     {
-        if (table[i] != nullptr)
+        if (table[hashNum].state == 0)
+            return false;
+        else if (table[hashNum].state == 1 && table[hashNum].key == key)
         {
-            UtilityFunctions::print(table[i]->key);
+            table[hashNum].state = -1;
+            filled -= 1;
+            return true;
         }
+
+        hashNum += 1;
+        if (hashNum >= NumOfKeys)
+            hashNum -= NumOfKeys;
     }
+    return false;
 }
-
-// void Hashtable::sort()
-// {
-//     // create vector of hash table entries
-//     vector<HashNode> entries;
-//     for (int i = 0; i < TABLE_SIZE; i++)
-//     {
-//         if (table[i] != nullptr)
-//         {
-//             HashNode *entry = table[i];
-//             while (entry != nullptr)
-//             {
-//                 entries.push_back(*entry);
-//                 entry = entry->next;
-//             }
-//         }
-//     }
-
-//     // sort vector of entries
-//     sort(entries.begin(), entries.end(), [](const HashNode &a, const HashNode &b)
-//             { return a.key < b.key || (a.key == b.key && a.value.compare(b.value) < 0); });
-
-//     // clear hash table
-//     clear();
-
-//     // re-insert sorted entries into hash table
-//     for (auto &entry : entries)
-//     {
-//         insert(entry->key, entry->type, entry->name, entry->text, entry->image_path);
-//     }
-// }
-
-// void Hashtable::filter(const String type)
-// {
-//     Hashtable filteredMap;
-//     for (int i = 0; i < TABLE_SIZE; i++)
-//     {
-//         if (table[i] != nullptr)
-//         {
-//             HashNode *entry = table[i];
-//             if (entry->type == type)
-//             {
-//                 filteredMap.insert(entry->key, entry->type, entry->name, entry->text, entry->image_path);
-//             }
-//         }
-//     }
-//     return filteredMap;
-// }
 
 void Hashtable::_ready() {
     UtilityFunctions::print("Hello");
-
-    // Hashtable Hashtable;
-
-    // // fill hash table from JSON file
-    // fillHashTableFromJSON(Hashtable, "data.json");
-
-    // // display elements
-    // Hashtable.display();
-
-    // // search element
-    // string name = "перемещать";
-    // int value = Hashtable.search(transform(name.begin(), name.end(), name.begin(), [](unsigned char c)
-    //                                        { return tolower(c); }););
-    // if (value == -1)
-    // {
-    //     UtilityFunctions::print("No element found at name ", name);
-    // }
-    // else
-    // {
-    //     UtilityFunctions::print("Element found at key ", name, ": ", value);
-    // }
-
-    // // remove element
-    // key = 3;
-    // Hashtable.remove(key);
-
-    // // display elements after removal
-    // UtilityFunctions::print("Hash Table after removal:");
-    // Hashtable.display();
-
-    // // filter elements by value
-    // string type = "атомарная механика";
-    // UtilityFunctions::print("Filtered Hash Table by type ", type, ":");
-    // Hashtable.filter(type);
 }
-
 
 void Hashtable::_bind_methods() {
     ClassDB::bind_method(D_METHOD("hashFunction", "key"), &Hashtable::hashFunction);
     ClassDB::bind_method(D_METHOD("insert", "key", "name", "text", "image_path"), &Hashtable::insert);
     ClassDB::bind_method(D_METHOD("remove", "key"), &Hashtable::remove);
-    // ClassDB::bind_method(D_METHOD("search", "name"), &Hashtable::search);
-    ClassDB::bind_method(D_METHOD("display"), &Hashtable::display);
-    // ClassDB::bind_method(D_METHOD("sort"), &Hashtable::sort);
-    // ClassDB::bind_method(D_METHOD("filter", "type"), &Hashtable::filter);
 }

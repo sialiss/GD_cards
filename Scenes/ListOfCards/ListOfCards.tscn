@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bavkt6qcbwsb5"]
+[gd_scene load_steps=14 format=3 uid="uid://bavkt6qcbwsb5"]
 
 [ext_resource type="Script" path="res://Scenes/ListOfCards/ListOfCards.gd" id="1_mtd6i"]
 [ext_resource type="Texture2D" uid="uid://dqx1k6v0ifjda" path="res://Assets/mechanics.png" id="1_odgt5"]
@@ -6,14 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://g837fvc802kc" path="res://Assets/eye.png" id="3_qxah8"]
 [ext_resource type="Texture2D" uid="uid://bbtftlvhegsi4" path="res://Assets/experience.png" id="4_i1euw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdfkw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_407xe"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_57uyb"]
 Button/colors/font_color = Color(0, 0, 0, 1)
-Button/styles/normal = SubResource("StyleBoxFlat_qdfkw")
+Button/styles/normal = SubResource("StyleBoxFlat_407xe")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_58pl1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdfkw"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_3qdfc"]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -119,12 +122,14 @@ offset_right = 925.0
 offset_bottom = 71.0
 theme = SubResource("Theme_b0pcm")
 alignment = 1
-item_count = 2
+item_count = 3
 selected = 0
-popup/item_0/text = "(А-Я)"
+popup/item_0/text = "Стандарт"
 popup/item_0/id = 0
-popup/item_1/text = "(Я-А)"
+popup/item_1/text = "(А-Я)"
 popup/item_1/id = 1
+popup/item_2/text = "(Я-А)"
+popup/item_2/id = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 18.0
@@ -147,5 +152,6 @@ columns = 5
 [connection signal="pressed" from="Types/space" to="." method="_on_space_pressed"]
 [connection signal="pressed" from="Types/eye" to="." method="_on_eye_pressed"]
 [connection signal="pressed" from="Types/experience" to="." method="_on_experience_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="Search" to="." method="_on_search_text_changed"]
 [connection signal="item_selected" from="Sort" to="." method="_on_sort_item_selected"]
