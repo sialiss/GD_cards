@@ -2,5 +2,3 @@ res://Scenes/ListOfCards/ListOfCards.tscn
 res://Scenes/card.tscn
 res://Scenes/Menu/Menu.tscn
 res://Scenes/Game/Game.tscn
-res://Scenes/Menu/Menu.gd
-res://Scenes/ListOfCards/ListOfCards.gd
